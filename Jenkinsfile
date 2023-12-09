@@ -16,9 +16,24 @@ pipeline {
 			
 			}
 
+		
 		}
 
-		stage('Deploy to aws ec2') {
+		stage("Provisioning The Infrastructure"){
+			steps {
+			   dir("Terraform"){
+
+				sh "echo 'Current Working Directory' && pwd"
+				sh "terraform init"
+				sh "terraform plan"
+				sh "terrafrom apply --var-file=dev.tfvars -auto-approve "
+
+			}
+			}
+
+		}
+
+		stage("Deploy to aws ec2") {
 	
      			 steps {
 	     			 sshagent(['aws-ec2']) {

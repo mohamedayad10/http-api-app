@@ -8,6 +8,10 @@ resource "aws_instance" "python-app" {
   associate_public_ip_address = true
 }
 
+output "public-ip" {
+  value = aws_instance.python-app.ip
+}
+
 resource "aws_db_instance" "database" {
   allocated_storage    = 10
   db_name              = "mydb"
