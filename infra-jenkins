@@ -1,0 +1,20 @@
+pipeline {
+        agent any
+        stages {
+
+                stage("Provisioning The Infrastructure"){
+                        steps {
+                           dir("Terraform"){
+
+                                sh "echo 'Current Working Directory' && pwd"
+                                sh "terraform init"
+                                sh "terraform plan"
+                                sh "terrafrom apply --var-file=dev.tfvars -auto-approve "
+				sh "terraform output public-ip"
+
+                        }
+                        }
+
+                }
+}
+}
