@@ -7,6 +7,9 @@ variable "vpc-cidr" {
 variable "public-subnet" {
   type = string
 }
+variable "public-subnet-2" {
+  type = string
+}
 variable "private-subnet" {
   type = string
 }
