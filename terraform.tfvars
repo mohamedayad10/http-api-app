@@ -1,0 +1,5 @@
+region         = "us-east-1"
+vpc-cidr       = "10.0.0.0/16"
+public-subnet  = "10.0.10.0/24"
+private-subnet = "10.0.20.0/24"
+image          = "ami-087c17d1fe0178315"
