@@ -9,6 +9,10 @@ resource "aws_route_table_association" "rt_associate_public-1" {
   subnet_id      = aws_subnet.public-subnet.id
   route_table_id = aws_route_table.public-routing-table.id
 }
+resource "aws_route_table_association" "rt_associate_public-2" {
+  subnet_id      = aws_subnet.public-subnet-2.id
+  route_table_id = aws_route_table.public-routing-table.id
+}
 ########################################
 resource "aws_route_table" "private-route" {
   vpc_id = aws_vpc.dev-vpc.id
